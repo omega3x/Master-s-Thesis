@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_Image13" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_Image13" name="Batch Orders Marketplace" isExecutable="true">
+    <bpmn:startEvent id="Start_Image13" name="Every 10 minutes">
+    <bpmn:outgoing>Flow_Image13_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="serviceTask_Image13_1" name="Collect all orders from marketplace">
+    <bpmn:incoming>Flow_Image13_0</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image13_1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="userTask_Image13_2" name="Check order data">
+    <bpmn:incoming>Flow_Image13_1</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image13_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="exclusiveGateway_Image13_3" name="data correct?">
+    <bpmn:incoming>Flow_Image13_2</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image13_3</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="serviceTask_Image13_4" name="Import order to ERP system">
+    <bpmn:incoming>Flow_Image13_3</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image13_4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="End_Image13" name="All orders processed">
+    <bpmn:incoming>Flow_Image13_4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Image13_0" sourceRef="Start_Image13" targetRef="serviceTask_Image13_1" />
+    <bpmn:sequenceFlow id="Flow_Image13_1" sourceRef="serviceTask_Image13_1" targetRef="userTask_Image13_2" />
+    <bpmn:sequenceFlow id="Flow_Image13_2" sourceRef="userTask_Image13_2" targetRef="exclusiveGateway_Image13_3" />
+    <bpmn:sequenceFlow id="Flow_Image13_3" sourceRef="exclusiveGateway_Image13_3" targetRef="serviceTask_Image13_4" />
+    <bpmn:sequenceFlow id="Flow_Image13_4" sourceRef="serviceTask_Image13_4" targetRef="End_Image13" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Image13">
+    <bpmndi:BPMNPlane id="Plane_Image13" bpmnElement="Process_Image13">
+      <bpmndi:BPMNShape id="Shape_Start_Image13" bpmnElement="Start_Image13"><dc:Bounds x="160" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_serviceTask_Image13_1" bpmnElement="serviceTask_Image13_1"><dc:Bounds x="330" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image13_2" bpmnElement="userTask_Image13_2"><dc:Bounds x="500" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_exclusiveGateway_Image13_3" bpmnElement="exclusiveGateway_Image13_3" isMarkerVisible="true"><dc:Bounds x="670" y="195" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_serviceTask_Image13_4" bpmnElement="serviceTask_Image13_4"><dc:Bounds x="840" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Image13" bpmnElement="End_Image13"><dc:Bounds x="1010" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image13_0" bpmnElement="Flow_Image13_0"><di:waypoint x="196" y="220"/><di:waypoint x="330" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image13_1" bpmnElement="Flow_Image13_1"><di:waypoint x="470" y="220"/><di:waypoint x="500" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image13_2" bpmnElement="Flow_Image13_2"><di:waypoint x="640" y="220"/><di:waypoint x="670" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image13_3" bpmnElement="Flow_Image13_3"><di:waypoint x="810" y="220"/><di:waypoint x="840" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image13_4" bpmnElement="Flow_Image13_4"><di:waypoint x="980" y="220"/><di:waypoint x="1010" y="220"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

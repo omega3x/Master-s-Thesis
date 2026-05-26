@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_Image18" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_Image18" name="Two Step Escalation - receive task" isExecutable="true">
+    <bpmn:startEvent id="Start_Image18" name="Pizza wanted">
+    <bpmn:outgoing>Flow_Image18_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="userTask_Image18_1" name="Order Pizza">
+    <bpmn:incoming>Flow_Image18_0</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image18_1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:receiveTask id="receiveTask_Image18_2" name="Wait for Pizza">
+    <bpmn:incoming>Flow_Image18_1</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image18_2</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:userTask id="userTask_Image18_3" name="Eat Pizza">
+    <bpmn:incoming>Flow_Image18_2</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image18_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="End_Image18" name="Pizza eaten">
+    <bpmn:incoming>Flow_Image18_3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Image18_0" sourceRef="Start_Image18" targetRef="userTask_Image18_1" />
+    <bpmn:sequenceFlow id="Flow_Image18_1" sourceRef="userTask_Image18_1" targetRef="receiveTask_Image18_2" />
+    <bpmn:sequenceFlow id="Flow_Image18_2" sourceRef="receiveTask_Image18_2" targetRef="userTask_Image18_3" />
+    <bpmn:sequenceFlow id="Flow_Image18_3" sourceRef="userTask_Image18_3" targetRef="End_Image18" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Image18">
+    <bpmndi:BPMNPlane id="Plane_Image18" bpmnElement="Process_Image18">
+      <bpmndi:BPMNShape id="Shape_Start_Image18" bpmnElement="Start_Image18"><dc:Bounds x="160" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image18_1" bpmnElement="userTask_Image18_1"><dc:Bounds x="330" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_receiveTask_Image18_2" bpmnElement="receiveTask_Image18_2"><dc:Bounds x="500" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image18_3" bpmnElement="userTask_Image18_3"><dc:Bounds x="670" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Image18" bpmnElement="End_Image18"><dc:Bounds x="840" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image18_0" bpmnElement="Flow_Image18_0"><di:waypoint x="196" y="220"/><di:waypoint x="330" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image18_1" bpmnElement="Flow_Image18_1"><di:waypoint x="470" y="220"/><di:waypoint x="500" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image18_2" bpmnElement="Flow_Image18_2"><di:waypoint x="640" y="220"/><di:waypoint x="670" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image18_3" bpmnElement="Flow_Image18_3"><di:waypoint x="810" y="220"/><di:waypoint x="840" y="220"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

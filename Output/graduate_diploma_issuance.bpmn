@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_GradDiploma" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_GradDiploma" name="Graduate Diploma Issuance" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_GradDiploma">
+      <bpmn:lane id="Lane_Student" name="Student Office">
+        <bpmn:flowNodeRef>Start_Application</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifyDeficiencies</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Rejected</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Academic" name="Academic Department">
+        <bpmn:flowNodeRef>Gateway_ParallelSplit</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckDebts</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PullGrades</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_EvaluateRequirements</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Eligible</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ChairSign</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Approved</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DeanEscalation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Boundary_TimerEscalation</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Registry" name="Registry and Archive">
+        <bpmn:flowNodeRef>Subprocess_Registry</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_NotifySplit</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendNotification</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AuditLog</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_NotifyJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_DiplomaIssued</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_Application" name="Graduation application submitted">
+      <bpmn:outgoing>Flow_Start_Parallel</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:parallelGateway id="Gateway_ParallelSplit" name="Parallel validation">
+      <bpmn:incoming>Flow_Start_Parallel</bpmn:incoming>
+      <bpmn:outgoing>Flow_Split_Debts</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Grades</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:serviceTask id="Task_CheckDebts" name="Verify academic debts in ERP">
+      <bpmn:incoming>Flow_Split_Debts</bpmn:incoming>
+      <bpmn:outgoing>Flow_Debts_Join</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_PullGrades" name="Pull final grades from LMS">
+      <bpmn:incoming>Flow_Split_Grades</bpmn:incoming>
+      <bpmn:outgoing>Flow_Grades_Join</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="Gateway_ParallelJoin" name="Validation complete">
+      <bpmn:incoming>Flow_Debts_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Grades_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Evaluate</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:businessRuleTask id="Task_EvaluateRequirements" name="Evaluate graduation requirements">
+      <bpmn:incoming>Flow_Join_Evaluate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Evaluate_Eligible</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:exclusiveGateway id="Gateway_Eligible" name="Meets requirements?" default="Flow_NotEligible">
+      <bpmn:incoming>Flow_Evaluate_Eligible</bpmn:incoming>
+      <bpmn:outgoing>Flow_Eligible</bpmn:outgoing>
+      <bpmn:outgoing>Flow_NotEligible</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_NotifyDeficiencies" name="Notify student of deficiencies">
+      <bpmn:incoming>Flow_NotEligible</bpmn:incoming>
+      <bpmn:incoming>Flow_NotApproved</bpmn:incoming>
+      <bpmn:outgoing>Flow_Notify_EndRejected</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="End_Rejected" name="Application rejected">
+      <bpmn:incoming>Flow_Notify_EndRejected</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Task_ChairSign" name="Department chair signs transcript">
+      <bpmn:incoming>Flow_Eligible</bpmn:incoming>
+      <bpmn:outgoing>Flow_Chair_ApprovedGW</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="Boundary_TimerEscalation" name="5-day SLA" attachedToRef="Task_ChairSign" cancelActivity="false">
+      <bpmn:outgoing>Flow_Timer_Escalation</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerDef_Escalation" />
+    </bpmn:boundaryEvent>
+    <bpmn:userTask id="Task_DeanEscalation" name="Dean reviews escalated case">
+      <bpmn:incoming>Flow_Timer_Escalation</bpmn:incoming>
+      <bpmn:outgoing>Flow_Dean_ApprovedGW</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_Approved" name="Approved?" default="Flow_NotApproved">
+      <bpmn:incoming>Flow_Chair_ApprovedGW</bpmn:incoming>
+      <bpmn:incoming>Flow_Dean_ApprovedGW</bpmn:incoming>
+      <bpmn:outgoing>Flow_Approved</bpmn:outgoing>
+      <bpmn:outgoing>Flow_NotApproved</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:subProcess id="Subprocess_Registry" name="Registry processing">
+      <bpmn:incoming>Flow_Approved</bpmn:incoming>
+      <bpmn:outgoing>Flow_Subprocess_NotifySplit</bpmn:outgoing>
+      <bpmn:startEvent id="Start_Registry" name="Begin registry">
+        <bpmn:outgoing>Flow_Reg_Start_PDF</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:serviceTask id="Task_GeneratePDF" name="Generate diploma PDF">
+        <bpmn:incoming>Flow_Reg_Start_PDF</bpmn:incoming>
+        <bpmn:outgoing>Flow_PDF_Sign</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:serviceTask id="Task_DigitalSign" name="Apply qualified digital signature">
+        <bpmn:incoming>Flow_PDF_Sign</bpmn:incoming>
+        <bpmn:outgoing>Flow_Sign_Archive</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:userTask id="Task_ArchiveRecord" name="Archive record in document system">
+        <bpmn:incoming>Flow_Sign_Archive</bpmn:incoming>
+        <bpmn:outgoing>Flow_Archive_EndReg</bpmn:outgoing>
+      </bpmn:userTask>
+      <bpmn:endEvent id="End_Registry" name="Registry complete">
+        <bpmn:incoming>Flow_Archive_EndReg</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_Reg_Start_PDF" sourceRef="Start_Registry" targetRef="Task_GeneratePDF" />
+      <bpmn:sequenceFlow id="Flow_PDF_Sign" sourceRef="Task_GeneratePDF" targetRef="Task_DigitalSign" />
+      <bpmn:sequenceFlow id="Flow_Sign_Archive" sourceRef="Task_DigitalSign" targetRef="Task_ArchiveRecord" />
+      <bpmn:sequenceFlow id="Flow_Archive_EndReg" sourceRef="Task_ArchiveRecord" targetRef="End_Registry" />
+    </bpmn:subProcess>
+    <bpmn:parallelGateway id="Gateway_NotifySplit" name="Post-issuance actions">
+      <bpmn:incoming>Flow_Subprocess_NotifySplit</bpmn:incoming>
+      <bpmn:outgoing>Flow_Split_Notify</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Audit</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:serviceTask id="Task_SendNotification" name="Send student and dean notifications">
+      <bpmn:incoming>Flow_Split_Notify</bpmn:incoming>
+      <bpmn:outgoing>Flow_Notify_Join</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:scriptTask id="Task_AuditLog" name="Write immutable audit trail">
+      <bpmn:incoming>Flow_Split_Audit</bpmn:incoming>
+      <bpmn:outgoing>Flow_Audit_Join</bpmn:outgoing>
+    </bpmn:scriptTask>
+    <bpmn:parallelGateway id="Gateway_NotifyJoin" name="Actions complete">
+      <bpmn:incoming>Flow_Notify_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Audit_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_EndSuccess</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="End_DiplomaIssued" name="Diploma issued">
+      <bpmn:incoming>Flow_Join_EndSuccess</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Parallel" sourceRef="Start_Application" targetRef="Gateway_ParallelSplit" />
+    <bpmn:sequenceFlow id="Flow_Split_Debts" sourceRef="Gateway_ParallelSplit" targetRef="Task_CheckDebts" />
+    <bpmn:sequenceFlow id="Flow_Split_Grades" sourceRef="Gateway_ParallelSplit" targetRef="Task_PullGrades" />
+    <bpmn:sequenceFlow id="Flow_Debts_Join" sourceRef="Task_CheckDebts" targetRef="Gateway_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_Grades_Join" sourceRef="Task_PullGrades" targetRef="Gateway_ParallelJoin" />
+    <bpmn:sequenceFlow id="Flow_Join_Evaluate" sourceRef="Gateway_ParallelJoin" targetRef="Task_EvaluateRequirements" />
+    <bpmn:sequenceFlow id="Flow_Evaluate_Eligible" sourceRef="Task_EvaluateRequirements" targetRef="Gateway_Eligible" />
+    <bpmn:sequenceFlow id="Flow_Eligible" name="Yes" sourceRef="Gateway_Eligible" targetRef="Task_ChairSign">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">${eligible == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_NotEligible" name="No" sourceRef="Gateway_Eligible" targetRef="Task_NotifyDeficiencies" />
+    <bpmn:sequenceFlow id="Flow_Notify_EndRejected" sourceRef="Task_NotifyDeficiencies" targetRef="End_Rejected" />
+    <bpmn:sequenceFlow id="Flow_Chair_ApprovedGW" sourceRef="Task_ChairSign" targetRef="Gateway_Approved" />
+    <bpmn:sequenceFlow id="Flow_Timer_Escalation" sourceRef="Boundary_TimerEscalation" targetRef="Task_DeanEscalation" />
+    <bpmn:sequenceFlow id="Flow_Dean_ApprovedGW" sourceRef="Task_DeanEscalation" targetRef="Gateway_Approved" />
+    <bpmn:sequenceFlow id="Flow_Approved" name="Yes" sourceRef="Gateway_Approved" targetRef="Subprocess_Registry">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">${approved == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_NotApproved" name="No" sourceRef="Gateway_Approved" targetRef="Task_NotifyDeficiencies" />
+    <bpmn:sequenceFlow id="Flow_Subprocess_NotifySplit" sourceRef="Subprocess_Registry" targetRef="Gateway_NotifySplit" />
+    <bpmn:sequenceFlow id="Flow_Split_Notify" sourceRef="Gateway_NotifySplit" targetRef="Task_SendNotification" />
+    <bpmn:sequenceFlow id="Flow_Split_Audit" sourceRef="Gateway_NotifySplit" targetRef="Task_AuditLog" />
+    <bpmn:sequenceFlow id="Flow_Notify_Join" sourceRef="Task_SendNotification" targetRef="Gateway_NotifyJoin" />
+    <bpmn:sequenceFlow id="Flow_Audit_Join" sourceRef="Task_AuditLog" targetRef="Gateway_NotifyJoin" />
+    <bpmn:sequenceFlow id="Flow_Join_EndSuccess" sourceRef="Gateway_NotifyJoin" targetRef="End_DiplomaIssued" />
+    <bpmn:dataObject id="DataObject_Transcript_Def" name="Official transcript" />
+    <bpmn:dataObject id="DataObject_Diploma_Def" name="Diploma record" />
+    <bpmn:dataObjectReference id="DataObjectRef_Transcript" name="Official transcript" dataObjectRef="DataObject_Transcript_Def" />
+    <bpmn:dataObjectReference id="DataObjectRef_Diploma" name="Diploma record" dataObjectRef="DataObject_Diploma_Def" />
+    <bpmn:association id="Association_Transcript" associationDirection="None" sourceRef="DataObjectRef_Transcript" targetRef="Task_ChairSign" />
+    <bpmn:association id="Association_Diploma" associationDirection="None" sourceRef="DataObjectRef_Diploma" targetRef="Subprocess_Registry" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_GradDiploma">
+    <bpmndi:BPMNPlane id="Plane_GradDiploma" bpmnElement="Process_GradDiploma">
+      <bpmndi:BPMNShape id="Shape_Lane_Student" bpmnElement="Lane_Student" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="2480" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Academic" bpmnElement="Lane_Academic" isHorizontal="true">
+        <dc:Bounds x="160" y="250" width="2480" height="280" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Registry" bpmnElement="Lane_Registry" isHorizontal="true">
+        <dc:Bounds x="160" y="530" width="2480" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start_Application" bpmnElement="Start_Application">
+        <dc:Bounds x="212" y="147" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_NotifyDeficiencies" bpmnElement="Task_NotifyDeficiencies">
+        <dc:Bounds x="640" y="128" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Rejected" bpmnElement="End_Rejected">
+        <dc:Bounds x="892" y="150" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_ParallelSplit" bpmnElement="Gateway_ParallelSplit">
+        <dc:Bounds x="310" y="355" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="278" y="412" width="114" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_CheckDebts" bpmnElement="Task_CheckDebts">
+        <dc:Bounds x="420" y="295" width="170" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_PullGrades" bpmnElement="Task_PullGrades">
+        <dc:Bounds x="420" y="400" width="170" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_ParallelJoin" bpmnElement="Gateway_ParallelJoin">
+        <dc:Bounds x="630" y="355" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="598" y="412" width="114" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_EvaluateRequirements" bpmnElement="Task_EvaluateRequirements">
+        <dc:Bounds x="740" y="340" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_Eligible" bpmnElement="Gateway_Eligible" isMarkerVisible="true">
+        <dc:Bounds x="960" y="355" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="918" y="412" width="134" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ChairSign" bpmnElement="Task_ChairSign">
+        <dc:Bounds x="1080" y="340" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Boundary_TimerEscalation" bpmnElement="Boundary_TimerEscalation">
+        <dc:Bounds x="1224" y="402" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1210" y="443" width="64" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_DeanEscalation" bpmnElement="Task_DeanEscalation">
+        <dc:Bounds x="1080" y="470" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_Approved" bpmnElement="Gateway_Approved" isMarkerVisible="true">
+        <dc:Bounds x="1320" y="355" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1298" y="412" width="94" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Subprocess_Registry" bpmnElement="Subprocess_Registry" isExpanded="true">
+        <dc:Bounds x="1400" y="565" width="560" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start_Registry" bpmnElement="Start_Registry">
+        <dc:Bounds x="1428" y="612" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_GeneratePDF" bpmnElement="Task_GeneratePDF">
+        <dc:Bounds x="1500" y="590" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_DigitalSign" bpmnElement="Task_DigitalSign">
+        <dc:Bounds x="1660" y="590" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ArchiveRecord" bpmnElement="Task_ArchiveRecord">
+        <dc:Bounds x="1800" y="590" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Registry" bpmnElement="End_Registry">
+        <dc:Bounds x="1940" y="612" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_NotifySplit" bpmnElement="Gateway_NotifySplit">
+        <dc:Bounds x="2000" y="605" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1962" y="662" width="126" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_SendNotification" bpmnElement="Task_SendNotification">
+        <dc:Bounds x="2100" y="555" width="190" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_AuditLog" bpmnElement="Task_AuditLog">
+        <dc:Bounds x="2100" y="660" width="190" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_NotifyJoin" bpmnElement="Gateway_NotifyJoin">
+        <dc:Bounds x="2330" y="605" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2292" y="662" width="126" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_DiplomaIssued" bpmnElement="End_DiplomaIssued">
+        <dc:Bounds x="2432" y="612" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataObject_Transcript" bpmnElement="DataObjectRef_Transcript">
+        <dc:Bounds x="1152" y="268" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1134" y="318" width="72" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataObject_Diploma" bpmnElement="DataObjectRef_Diploma">
+        <dc:Bounds x="1320" y="528" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1306" y="578" width="64" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Start_Parallel" bpmnElement="Flow_Start_Parallel">
+        <di:waypoint x="248" y="165" />
+        <di:waypoint x="285" y="165" />
+        <di:waypoint x="285" y="380" />
+        <di:waypoint x="310" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Debts" bpmnElement="Flow_Split_Debts">
+        <di:waypoint x="335" y="355" />
+        <di:waypoint x="335" y="335" />
+        <di:waypoint x="420" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Grades" bpmnElement="Flow_Split_Grades">
+        <di:waypoint x="335" y="405" />
+        <di:waypoint x="335" y="440" />
+        <di:waypoint x="420" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Debts_Join" bpmnElement="Flow_Debts_Join">
+        <di:waypoint x="590" y="335" />
+        <di:waypoint x="655" y="335" />
+        <di:waypoint x="655" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Grades_Join" bpmnElement="Flow_Grades_Join">
+        <di:waypoint x="590" y="440" />
+        <di:waypoint x="655" y="440" />
+        <di:waypoint x="655" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Join_Evaluate" bpmnElement="Flow_Join_Evaluate">
+        <di:waypoint x="680" y="380" />
+        <di:waypoint x="740" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Evaluate_Eligible" bpmnElement="Flow_Evaluate_Eligible">
+        <di:waypoint x="920" y="380" />
+        <di:waypoint x="960" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Eligible" bpmnElement="Flow_Eligible">
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1008" y="362" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+        <di:waypoint x="1010" y="380" />
+        <di:waypoint x="1080" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_NotEligible" bpmnElement="Flow_NotEligible">
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="572" y="248" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+        <di:waypoint x="985" y="355" />
+        <di:waypoint x="985" y="280" />
+        <di:waypoint x="560" y="280" />
+        <di:waypoint x="560" y="168" />
+        <di:waypoint x="640" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Notify_EndRejected" bpmnElement="Flow_Notify_EndRejected">
+        <di:waypoint x="840" y="168" />
+        <di:waypoint x="892" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Chair_ApprovedGW" bpmnElement="Flow_Chair_ApprovedGW">
+        <di:waypoint x="1260" y="380" />
+        <di:waypoint x="1320" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Timer_Escalation" bpmnElement="Flow_Timer_Escalation">
+        <di:waypoint x="1242" y="420" />
+        <di:waypoint x="1242" y="510" />
+        <di:waypoint x="1170" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Dean_ApprovedGW" bpmnElement="Flow_Dean_ApprovedGW">
+        <di:waypoint x="1260" y="510" />
+        <di:waypoint x="1345" y="510" />
+        <di:waypoint x="1345" y="405" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Approved" bpmnElement="Flow_Approved">
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1338" y="448" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+        <di:waypoint x="1345" y="380" />
+        <di:waypoint x="1345" y="640" />
+        <di:waypoint x="1400" y="640" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_NotApproved" bpmnElement="Flow_NotApproved">
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="572" y="108" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+        <di:waypoint x="1345" y="355" />
+        <di:waypoint x="1345" y="100" />
+        <di:waypoint x="560" y="100" />
+        <di:waypoint x="560" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Subprocess_NotifySplit" bpmnElement="Flow_Subprocess_NotifySplit">
+        <di:waypoint x="1976" y="630" />
+        <di:waypoint x="2000" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Reg_Start_PDF" bpmnElement="Flow_Reg_Start_PDF">
+        <di:waypoint x="1464" y="630" />
+        <di:waypoint x="1500" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_PDF_Sign" bpmnElement="Flow_PDF_Sign">
+        <di:waypoint x="1630" y="630" />
+        <di:waypoint x="1660" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Sign_Archive" bpmnElement="Flow_Sign_Archive">
+        <di:waypoint x="1790" y="630" />
+        <di:waypoint x="1800" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Archive_EndReg" bpmnElement="Flow_Archive_EndReg">
+        <di:waypoint x="1930" y="630" />
+        <di:waypoint x="1940" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Notify" bpmnElement="Flow_Split_Notify">
+        <di:waypoint x="2025" y="605" />
+        <di:waypoint x="2025" y="595" />
+        <di:waypoint x="2100" y="595" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Audit" bpmnElement="Flow_Split_Audit">
+        <di:waypoint x="2025" y="655" />
+        <di:waypoint x="2025" y="700" />
+        <di:waypoint x="2100" y="700" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Notify_Join" bpmnElement="Flow_Notify_Join">
+        <di:waypoint x="2290" y="595" />
+        <di:waypoint x="2355" y="595" />
+        <di:waypoint x="2355" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Audit_Join" bpmnElement="Flow_Audit_Join">
+        <di:waypoint x="2290" y="700" />
+        <di:waypoint x="2355" y="700" />
+        <di:waypoint x="2355" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Join_EndSuccess" bpmnElement="Flow_Join_EndSuccess">
+        <di:waypoint x="2380" y="630" />
+        <di:waypoint x="2432" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Transcript" bpmnElement="Association_Transcript">
+        <di:waypoint x="1170" y="318" />
+        <di:waypoint x="1170" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Diploma" bpmnElement="Association_Diploma">
+        <di:waypoint x="1356" y="578" />
+        <di:waypoint x="1400" y="565" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

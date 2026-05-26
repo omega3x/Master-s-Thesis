@@ -1,0 +1,566 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1321" height="500">
+  <defs>
+    <marker viewBox="0 0 20 20" markerWidth="10" markerHeight="10" orient="auto" refX="11" refY="10" id="Shzy8732p2bu">
+      <path d="M 1 5 L 11 10 L 1 15 Z" fill="#000000" style="stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px;"></path>
+    </marker>
+    <marker viewBox="0 0 20 20" markerWidth="20" markerHeight="20" orient="auto" refX="6" refY="6" id="Shzy8732p2bw">
+      <circle cx="6" cy="6" r="5" fill="#ffffff" stroke="#000000" style="stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px;"></circle>
+    </marker>
+    <marker viewBox="0 0 20 20" markerWidth="20" markerHeight="20" orient="auto" refX="11" refY="10" id="Shzy8732p2by">
+      <path d="M 1 5 L 11 10 L 1 15 Z" fill="#ffffff" stroke="#000000" style="stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px;"></path>
+    </marker>
+    <marker viewBox="0 0 20 20" markerWidth="10" markerHeight="10" orient="auto" refX="11" refY="10" id="Shzy8732p2c0">
+      <path d="M 1 5 L 11 10 L 1 15" fill="#ffffff" stroke="#000000" style="stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px;"></path>
+    </marker>
+    <marker viewBox="0 0 20 20" markerWidth="10" markerHeight="10" orient="auto" refX="-1" refY="10" id="Shzy8732p2c2">
+      <path d="M 0 10 L 8 6 L 16 10 L 8 14 Z" fill="#ffffff" stroke="#000000" style="stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px;"></path>
+    </marker>
+    <marker viewBox="0 0 20 20" markerWidth="10" markerHeight="10" orient="auto" refX="-5" refY="10" id="Shzy8732p2c4">
+      <path d="M 1 4 L 5 16" fill="#000000" stroke="#000000" style="stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000px, 1px;"></path>
+    </marker>
+  </defs>
+  <g transform="matrix(1,0,0,1,-239,-70)" class="djs-wrapper">
+    <g class=" djs-group djs-shape" data-element-id="sid-B5B7A3C3-9E85-458A-AD6C-B99E9E6D3C86" transform="matrix(1,0,0,1,244,195)">
+      <rect x="-5" y="-5" width="498" height="217" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="488" height="207" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="488" height="207" rx="0" ry="0" stroke="#000000" fill="none" style="stroke-width: 2px;"></rect>
+        <polyline points="30,0,30,207" fill="none" stroke="#000000" style="stroke-width: 2px;"></polyline>
+        <g transform="matrix(0,-1,1,0,0,207)" style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="84.15625" y="11.5">Lawyer</text>
+          <text x="47.1328125" y="25.5">Provide Legal Advice</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-101BE9D6-DB09-47FF-9AF3-621BD2741DD0" transform="matrix(1,0,0,1,274,195)">
+      <rect x="-5" y="-5" width="468" height="217" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="458" height="207" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="458" height="207" rx="0" ry="0" stroke="#000000" fill="none" style="stroke-width: 2px;"></rect>
+        <g transform="matrix(0,-1,1,0,0,207)" style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="103.5" y="15"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-A42332DA-04B0-428F-8730-E348804ABFAD" transform="matrix(1,0,0,1,300,284)">
+      <rect x="-5" y="-5" width="40" height="40" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="30" height="30" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <circle cx="15" cy="15" r="15" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></circle>
+        <path d="m 7.05,9.45 l 0,10.5 l 15.75,0 l 0,-10.5 z l 7.875,4.5 l 7.875,-4.5" fill="none" stroke="#000000" style="stroke-width: 1px;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-A42332DA-04B0-428F-8730-E348804ABFAD_label" transform="matrix(1,0,0,1,240,316)">
+      <rect x="38.5" y="2" width="73" height="34" fill="none" class="djs-outline"></rect>
+      <rect x="43.5" y="7" width="63" height="24" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="43.5" y="17">Legal Advice</text>
+          <text x="50.53125" y="29">requested</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-5BB8129B-1E9E-4216-9BE1-84760ADF05D3" transform="matrix(1,0,0,1,375,259)">
+      <rect x="-5" y="-5" width="110" height="90" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="80" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="80" rx="10" ry="10" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></rect>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="15.9765625" y="36.5">provide legal</text>
+          <text x="32.65625" y="50.5">advice</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-E2A386A7-0412-4B18-8F6E-ECB7D8E2A206" transform="matrix(1,0,0,1,520,259)">
+      <rect x="-5" y="-5" width="110" height="90" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="80" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="80" rx="10" ry="10" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></rect>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="16.984375" y="43.5">register time</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-501FD15E-0E4F-4DF9-BC62-940917B6565D" transform="matrix(1,0,0,1,665,285)">
+      <rect x="-5" y="-5" width="38" height="38" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="28" height="28" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <circle cx="14" cy="14" r="14" stroke="#000000" fill="#ffffff" style="stroke-width: 4px;"></circle>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-501FD15E-0E4F-4DF9-BC62-940917B6565D_label" transform="matrix(1,0,0,1,604,315)">
+      <rect x="49.5" y="2" width="50.984375" height="34" fill="none" class="djs-outline"></rect>
+      <rect x="54.5" y="7" width="40.984375" height="24" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="54.5078125" y="17">Request</text>
+          <text x="55.421875" y="29">handled</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-1702D062-0983-470C-A57F-D78807E142FF" transform="matrix(1,0,0,1,750,445)">
+      <rect x="-5" y="-6.861416816711426" width="70.98458862304688" height="74.1187744140625" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="-1.8614168167114258" width="60.984588623046875" height="64.1187744140625" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <path d="m  0,8.003009 l  0,44.38991803278689 c  2.0328196721311467,9.864426229508197 58.95177049180325,9.864426229508197  60.9845901639344,0 l  0,-44.38991803278689 c -2.0328196721311467,-9.864426229508197 -58.95177049180325,-9.864426229508197 -60.9845901639344,0c  2.0328196721311467,9.864426229508197 58.95177049180325,9.864426229508197  60.9845901639344,0 m  0,6.905098360655738c -2.0328196721311467,9.864426229508197 -58.95177049180325,9.864426229508197 -60.9845901639344,0m  0,6.905098360655738c  2.0328196721311467,9.864426229508197 58.95177049180325,9.864426229508197  60.9845901639344,0" fill="#ffffff" stroke="#000000" style="stroke-width: 2px;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-1702D062-0983-470C-A57F-D78807E142FF_label" transform="matrix(1,0,0,1,705.075,510.338)">
+      <rect x="41.875" y="2" width="66.25" height="34" fill="none" class="djs-outline"></rect>
+      <rect x="46.875" y="7" width="56.25" height="24" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="51.15625" y="17">Customer</text>
+          <text x="46.875" y="29">Time Sheet</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-D8A713ED-B738-4279-8919-634E47EC5CFC" transform="matrix(1,0,0,1,244,75)">
+      <rect x="-5" y="-5" width="1321" height="70" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="1311" height="60" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="1311" height="60" rx="0" ry="0" stroke="#000000" fill="none" style="stroke-width: 2px;"></rect>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="629.4921875" y="33.5">Customer</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-4CB1196F-130C-4E50-AB83-E3A4447831F1" transform="matrix(1,0,0,1,810,195)">
+      <rect x="-5" y="-5" width="755" height="242" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="745" height="232" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="745" height="232" rx="0" ry="0" stroke="#000000" fill="none" style="stroke-width: 2px;"></rect>
+        <polyline points="30,0,30,232" fill="none" stroke="#000000" style="stroke-width: 2px;"></polyline>
+        <g transform="matrix(0,-1,1,0,0,232)" style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="86.3125" y="11.5">Accounting</text>
+          <text x="69.640625" y="25.5">Monthly Invoicing</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-91C109C3-4F63-4EFD-AE61-E3B425E77199" transform="matrix(1,0,0,1,840,195)">
+      <rect x="-5" y="-5" width="725" height="242" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="715" height="232" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="715" height="232" rx="0" ry="0" stroke="#000000" fill="none" style="stroke-width: 2px;"></rect>
+        <g transform="matrix(0,-1,1,0,0,232)" style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="116" y="15"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-78732132-ED9A-4E74-BF4C-6167F0F2E13C" transform="matrix(1,0,0,1,885,284)">
+      <rect x="-5" y="-5" width="40" height="40" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="30" height="30" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <circle cx="15" cy="15" r="15" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></circle>
+        <circle cx="15" cy="15" r="9" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></circle>
+        <path d="M 15,15 m -6.5625,-2.5 l 6.5625,2.5 l 5.46875,-2.1875" fill="none" stroke="#000000" style="stroke-width: 2px;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-78732132-ED9A-4E74-BF4C-6167F0F2E13C_label" transform="matrix(1,0,0,1,825,316)">
+      <rect x="48.59375" y="2" width="52.8125" height="34" fill="none" class="djs-outline"></rect>
+      <rect x="53.59375" y="7" width="42.8125" height="24" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="57.265625" y="17">1st day</text>
+          <text x="53.59375" y="29">of month</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-A908A45B-B290-4A7E-9EE1-2A0D91A4082F" transform="matrix(1,0,0,1,960,259)">
+      <rect x="-5" y="-5" width="110" height="90" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="80" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="80" rx="10" ry="10" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></rect>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="23.3125" y="36.5">determine</text>
+          <text x="14.640625" y="50.5">billable hours</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-4166A3B7-4B3A-4A1B-9F8B-A137B7D25D65" transform="matrix(1,0,0,1,1105,259)">
+      <rect x="-5" y="-5" width="110" height="90" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="80" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="80" rx="10" ry="10" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></rect>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="6.96875" y="36.5">create and send</text>
+          <text x="31.3203125" y="50.5">invoice</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-0169193B-9A85-48EA-BEC0-DAB6E3CF3F03" transform="matrix(1,0,0,1,1250,279)">
+      <rect x="-5" y="-5" width="50" height="50" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="40" height="40" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <polygon points="20,0,40,20,20,40,0,20" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></polygon>
+        <circle cx="20" cy="20" r="12" stroke="#000000" fill="none" style="stroke-width: 1px;"></circle>
+        <circle cx="20" cy="20" r="10" stroke="#000000" fill="none" style="stroke-width: 1px;"></circle>
+        <path d="m 14.399999999999999,17.6 5.890909090909091,-3.9272727272727272 5.890909090909091,3.9272727272727272 -1.9636363636363636,7.8545454545454545 -7.8545454545454545,0 z" fill="none" stroke="#000000" style="stroke-width: 2px;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-0169193B-9A85-48EA-BEC0-DAB6E3CF3F03_label" transform="matrix(1,0,0,1,1225,339)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-4B17A190-A563-40DB-96B6-387DD6B4D096" transform="matrix(1,0,0,1,1335,225)">
+      <rect x="-5" y="-5" width="40" height="40" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="30" height="30" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <circle cx="15" cy="15" r="15" stroke="#000000" fill="#ffffff" style="stroke-width: 1px;"></circle>
+        <circle cx="15" cy="15" r="12" stroke="#000000" fill="#ffffff" style="stroke-width: 1px;"></circle>
+        <path d="m 7.05,9.45 l 0,10.5 l 15.75,0 l 0,-10.5 z l 7.875,4.5 l 7.875,-4.5" fill="none" stroke="#000000" style="stroke-width: 1px;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-4B17A190-A563-40DB-96B6-387DD6B4D096_label" transform="matrix(1,0,0,1,1275,257)">
+      <rect x="49.203125" y="2" width="51.59375" height="34" fill="none" class="djs-outline"></rect>
+      <rect x="54.203125" y="7" width="41.59375" height="24" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="58.484375" y="17">money</text>
+          <text x="54.2109375" y="29">received</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-FCBDE1A8-CF02-4470-8E59-B1085CF04C5B" transform="matrix(1,0,0,1,1410,226)">
+      <rect x="-5" y="-5" width="38" height="38" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="28" height="28" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <circle cx="14" cy="14" r="14" stroke="#000000" fill="#ffffff" style="stroke-width: 4px;"></circle>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-FCBDE1A8-CF02-4470-8E59-B1085CF04C5B_label" transform="matrix(1,0,0,1,1349,256)">
+      <rect x="-5" y="-5" width="102.4375" height="41" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="92.4375" height="31" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="57.5703125" y="17">Invoice</text>
+          <text x="58.7890625" y="29">settled</text>
+          <text x="75" y="29"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-24F8FF2A-EAEC-401C-9822-B17843BEE711" transform="matrix(1,0,0,1,1335,330)">
+      <rect x="-5" y="-5" width="40" height="40" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="30" height="30" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <circle cx="15" cy="15" r="15" stroke="#000000" fill="#ffffff" style="stroke-width: 1px;"></circle>
+        <circle cx="15" cy="15" r="12" stroke="#000000" fill="#ffffff" style="stroke-width: 1px;"></circle>
+        <circle cx="15" cy="15" r="9" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></circle>
+        <path d="M 15,15 m -6.5625,-2.5 l 6.5625,2.5 l 5.46875,-2.1875" fill="none" stroke="#000000" style="stroke-width: 2px;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-24F8FF2A-EAEC-401C-9822-B17843BEE711_label" transform="matrix(1,0,0,1,1275,362)">
+      <rect x="50.734375" y="2" width="48.53125" height="22" fill="none" class="djs-outline"></rect>
+      <rect x="55.734375" y="7" width="38.53125" height="12" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="55.734375" y="17">14 days</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-558F26D6-C1E7-4757-84D2-6D0B4FD2EC0E" transform="matrix(1,0,0,1,1410,305)">
+      <rect x="-5" y="-5" width="110" height="90" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="80" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="80" rx="10" ry="10" stroke="#000000" fill="#ffffff" style="stroke-width: 2px;"></rect>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="11.640625" y="43.5">send reminder</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-D3812060-63FA-4661-B823-279A81ED3752" transform="matrix(1,0,0,1,1125,465)">
+      <rect x="-5" y="-5" width="110" height="110" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="100" rx="0" ry="0" stroke="none" fill="none" style="stroke-width: 2px;"></rect>
+        <path d="m 0, 0 m 10,0 l -10,0 l 0,50 l 10,0" fill="none" stroke="#000000" style="stroke-width: 2px;"></path>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="5" y="14.5">just one</text>
+          <text x="5" y="28.5">instance per</text>
+          <text x="5" y="42.5">month</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-A7CA1EB8-7092-4508-9491-BC1010F50045" transform="matrix(1,0,0,1,315,450)">
+      <rect x="-5" y="-5" width="110" height="110" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <rect x="0" y="0" width="100" height="100" rx="0" ry="0" stroke="none" fill="none" style="stroke-width: 2px;"></rect>
+        <path d="m 0, 0 m 10,0 l -10,0 l 0,50 l 10,0" fill="none" stroke="#000000" style="stroke-width: 2px;"></path>
+        <g style="font-family: Arial, sans-serif; font-size: 12px;" class=" djs-label">
+          <text x="5" y="21.5">many instances</text>
+          <text x="5" y="35.5">per month</text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-F2395C84-717C-4E06-9C7E-DF2EAE393C1A">
+      <polyline points="385.90063971689125,402,339.30021323896375,450" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></polyline>
+      <g class=" djs-visual">
+        <polyline points="385.90063971689125,402,339.30021323896375,450" fill="none" stroke="#000000" style="stroke-width: 2px; stroke-dasharray: 1px, 6px; stroke-linecap: round;"></polyline>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-76AB7312-38C4-4671-B4B1-3A5E38549AD7">
+      <polyline points="1145.1474596858327,427,1133.411919878387,465" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></polyline>
+      <g class=" djs-visual">
+        <polyline points="1145.1474596858327,427,1133.411919878387,465" fill="none" stroke="#000000" style="stroke-width: 2px; stroke-dasharray: 1px, 6px; stroke-linecap: round;"></polyline>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-D4D275BC-A300-4C5D-B10F-F99548D4F38B">
+      <path d="m  315,135L315,284 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  315,135L315,284 " fill="none" stroke="#000000" style="stroke-width: 1px; marker-end: url(#Shzy8732p2by); marker-start: url(#Shzy8732p2bw); stroke-dasharray: 10px; stroke-linecap: round;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-D4D275BC-A300-4C5D-B10F-F99548D4F38B_label" transform="matrix(1,0,0,1,270,209.5)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-77DE3281-A9B0-446C-B0E9-11AC36D14885">
+      <path d="m  1155,259L1155,135 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1155,259L1155,135 " fill="none" stroke="#000000" style="stroke-width: 1px; marker-end: url(#Shzy8732p2by); marker-start: url(#Shzy8732p2bw); stroke-dasharray: 10px; stroke-linecap: round;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-77DE3281-A9B0-446C-B0E9-11AC36D14885_label" transform="matrix(1,0,0,1,1110,197)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-5745C2B3-286B-4A73-B5BA-1344E6B116FE">
+      <path d="m  425,259L425,135 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  425,259L425,135 " fill="none" stroke="#000000" style="stroke-width: 1px; marker-end: url(#Shzy8732p2by); marker-start: url(#Shzy8732p2bw); stroke-dasharray: 10px; stroke-linecap: round;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-5745C2B3-286B-4A73-B5BA-1344E6B116FE_label" transform="matrix(1,0,0,1,380,197)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-D2CEAA36-217C-4911-B47F-ADBAFED6A47C">
+      <path d="m  1460,305L1460,135 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1460,305L1460,135 " fill="none" stroke="#000000" style="stroke-width: 1px; marker-end: url(#Shzy8732p2by); marker-start: url(#Shzy8732p2bw); stroke-dasharray: 10px; stroke-linecap: round;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-D2CEAA36-217C-4911-B47F-ADBAFED6A47C_label" transform="matrix(1,0,0,1,1415,220)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-48BF4334-D9E8-41E9-B476-8FBC68CBC42E">
+      <path d="m  1350,135L1350,225 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1350,135L1350,225 " fill="none" stroke="#000000" style="stroke-width: 1px; marker-end: url(#Shzy8732p2by); marker-start: url(#Shzy8732p2bw); stroke-dasharray: 10px; stroke-linecap: round;"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-48BF4334-D9E8-41E9-B476-8FBC68CBC42E_label" transform="matrix(1,0,0,1,1305,180)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-71C211D1-96A4-48F1-A207-27CE3FB9E1CF">
+      <polyline points="601.3096774193548,339,750,465.63186813186815" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></polyline>
+      <g class=" djs-visual">
+        <polyline points="601.3096774193548,339,750,465.63186813186815" fill="none" stroke="#000000" style="stroke-width: 2px; stroke-dasharray: 1px, 6px; stroke-linecap: round; marker-end: url(#Shzy8732p2c0);"></polyline>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-FFB80E46-F774-4976-B8A2-741D85327500">
+      <path d="m  330,299L375,299 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  330,299L375,299 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-FFB80E46-F774-4976-B8A2-741D85327500_label" transform="matrix(1,0,0,1,307.5,299)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-8DCA7A08-6014-43A5-8D26-072746E859EC">
+      <path d="m  475,299L520,299 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  475,299L520,299 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-8DCA7A08-6014-43A5-8D26-072746E859EC_label" transform="matrix(1,0,0,1,452.5,299)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-3F10D88F-24F6-4463-B8FA-6577B81195CB">
+      <path d="m  620,299L665,299 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  620,299L665,299 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-3F10D88F-24F6-4463-B8FA-6577B81195CB_label" transform="matrix(1,0,0,1,597.5,299)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-59C68B53-AD74-42A0-8AD3-77B66A2A951D">
+      <polyline points="812.001,468.39724271844665,970.6666666666666,339" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></polyline>
+      <g class=" djs-visual">
+        <polyline points="812.001,468.39724271844665,970.6666666666666,339" fill="none" stroke="#000000" style="stroke-width: 2px; stroke-dasharray: 1px, 6px; stroke-linecap: round; marker-end: url(#Shzy8732p2c0);"></polyline>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-6507F97F-E757-4CCD-92B2-68B6902B7AC8">
+      <path d="m  915,299L960,299 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  915,299L960,299 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-6507F97F-E757-4CCD-92B2-68B6902B7AC8_label" transform="matrix(1,0,0,1,892.5,299)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-A87A0E5F-4421-49DC-B619-1A01545C82C4">
+      <path d="m  1060,299L1105,299 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1060,299L1105,299 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-A87A0E5F-4421-49DC-B619-1A01545C82C4_label" transform="matrix(1,0,0,1,1037.5,299)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-BEC462DC-65C7-4DE0-8277-CD57CB853CC8">
+      <path d="m  1205,299.2164502164502L1250,299.4112554112554 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1205,299.2164502164502L1250,299.4112554112554 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-BEC462DC-65C7-4DE0-8277-CD57CB853CC8_label" transform="matrix(1,0,0,1,1182.5,299.3139)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-E991B614-626C-4471-91D1-78E30F59990B">
+      <path d="m  1270.5,279L1270.5,240 L1335,240 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1270.5,279L1270.5,240 L1335,240 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-E991B614-626C-4471-91D1-78E30F59990B_label" transform="matrix(1,0,0,1,1225.5,259.5)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-DFDA8C47-D06D-4770-92EA-DFEC504E4C27">
+      <path d="m  1365,240L1410,240 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1365,240L1410,240 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-DFDA8C47-D06D-4770-92EA-DFEC504E4C27_label" transform="matrix(1,0,0,1,1342.5,240)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-FA0B0614-440C-45A7-8D96-AD275D13D55E">
+      <path d="m  1270.5,319L1270.5,345 L1335,345 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1270.5,319L1270.5,345 L1335,345 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-FA0B0614-440C-45A7-8D96-AD275D13D55E_label" transform="matrix(1,0,0,1,1225.5,332)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-0324BC7D-293D-46A1-9C97-23F92024EC6E">
+      <path d="m  1365,345L1410,345 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1365,345L1410,345 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-0324BC7D-293D-46A1-9C97-23F92024EC6E_label" transform="matrix(1,0,0,1,1342.5,345)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+    <g class=" djs-group djs-connection" data-element-id="sid-372E4D77-2CE3-4A2E-8C65-EA9277927796">
+      <path d="m  1510,345L1533,345 L1533,401 L1259,401 L1259,319 " fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></path>
+      <g class=" djs-visual">
+        <path d="m  1510,345L1533,345 L1533,401 L1259,401 L1259,319 " fill="none" stroke="#000000" style="stroke-width: 2px; marker-end: url(#Shzy8732p2bu);"></path>
+      </g>
+    </g>
+    <g class=" djs-group djs-shape" data-element-id="sid-372E4D77-2CE3-4A2E-8C65-EA9277927796_label" transform="matrix(1,0,0,1,1488,373)">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" class="djs-outline"></rect>
+      <rect x="0" y="0" width="0" height="0" fill="none" stroke="#ffffff" style="stroke-opacity: 0; pointer-events: stroke; stroke-width: 10px;" class="djs-hit"></rect>
+      <g class=" djs-visual">
+        <g style="font-family: Arial, sans-serif; font-size: 11px;" class=" djs-label">
+          <text x="45" y="5"></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

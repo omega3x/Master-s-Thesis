@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_Image5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_Image5" name="Dependent Instances - Timer" isExecutable="true">
+    <bpmn:startEvent id="Start_Image5" name="Check requested">
+    <bpmn:outgoing>Flow_Image5_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="serviceTask_Image5_1" name="check for running instances">
+    <bpmn:incoming>Flow_Image5_0</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image5_1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="exclusiveGateway_Image5_2" name="running instances?">
+    <bpmn:incoming>Flow_Image5_1</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image5_2</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:intermediateCatchEvent id="intermediateCatchEvent_Image5_3" name="wait some time">
+    <bpmn:incoming>Flow_Image5_2</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image5_3</bpmn:outgoing>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:serviceTask id="serviceTask_Image5_4" name="perform credit check">
+    <bpmn:incoming>Flow_Image5_3</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image5_4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="End_Image5" name="credit check performed">
+    <bpmn:incoming>Flow_Image5_4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Image5_0" sourceRef="Start_Image5" targetRef="serviceTask_Image5_1" />
+    <bpmn:sequenceFlow id="Flow_Image5_1" sourceRef="serviceTask_Image5_1" targetRef="exclusiveGateway_Image5_2" />
+    <bpmn:sequenceFlow id="Flow_Image5_2" sourceRef="exclusiveGateway_Image5_2" targetRef="intermediateCatchEvent_Image5_3" />
+    <bpmn:sequenceFlow id="Flow_Image5_3" sourceRef="intermediateCatchEvent_Image5_3" targetRef="serviceTask_Image5_4" />
+    <bpmn:sequenceFlow id="Flow_Image5_4" sourceRef="serviceTask_Image5_4" targetRef="End_Image5" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Image5">
+    <bpmndi:BPMNPlane id="Plane_Image5" bpmnElement="Process_Image5">
+      <bpmndi:BPMNShape id="Shape_Start_Image5" bpmnElement="Start_Image5"><dc:Bounds x="160" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_serviceTask_Image5_1" bpmnElement="serviceTask_Image5_1"><dc:Bounds x="330" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_exclusiveGateway_Image5_2" bpmnElement="exclusiveGateway_Image5_2" isMarkerVisible="true"><dc:Bounds x="500" y="195" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_intermediateCatchEvent_Image5_3" bpmnElement="intermediateCatchEvent_Image5_3"><dc:Bounds x="670" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_serviceTask_Image5_4" bpmnElement="serviceTask_Image5_4"><dc:Bounds x="840" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Image5" bpmnElement="End_Image5"><dc:Bounds x="1010" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image5_0" bpmnElement="Flow_Image5_0"><di:waypoint x="196" y="220"/><di:waypoint x="330" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image5_1" bpmnElement="Flow_Image5_1"><di:waypoint x="470" y="220"/><di:waypoint x="500" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image5_2" bpmnElement="Flow_Image5_2"><di:waypoint x="640" y="220"/><di:waypoint x="670" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image5_3" bpmnElement="Flow_Image5_3"><di:waypoint x="810" y="220"/><di:waypoint x="840" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image5_4" bpmnElement="Flow_Image5_4"><di:waypoint x="980" y="220"/><di:waypoint x="1010" y="220"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

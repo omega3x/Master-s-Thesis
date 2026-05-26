@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_Image11" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_Image11" name="Additional Info - from user" isExecutable="true">
+    <bpmn:startEvent id="Start_Image11" name="some task for the user">
+    <bpmn:outgoing>Flow_Image11_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="exclusiveGateway_Image11_1" name="additional information required?">
+    <bpmn:incoming>Flow_Image11_0</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image11_1</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="userTask_Image11_2" name="request information (from user)">
+    <bpmn:incoming>Flow_Image11_1</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image11_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="End_Image11" name="continued">
+    <bpmn:incoming>Flow_Image11_2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Image11_0" sourceRef="Start_Image11" targetRef="exclusiveGateway_Image11_1" />
+    <bpmn:sequenceFlow id="Flow_Image11_1" sourceRef="exclusiveGateway_Image11_1" targetRef="userTask_Image11_2" />
+    <bpmn:sequenceFlow id="Flow_Image11_2" sourceRef="userTask_Image11_2" targetRef="End_Image11" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Image11">
+    <bpmndi:BPMNPlane id="Plane_Image11" bpmnElement="Process_Image11">
+      <bpmndi:BPMNShape id="Shape_Start_Image11" bpmnElement="Start_Image11"><dc:Bounds x="160" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_exclusiveGateway_Image11_1" bpmnElement="exclusiveGateway_Image11_1" isMarkerVisible="true"><dc:Bounds x="330" y="195" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image11_2" bpmnElement="userTask_Image11_2"><dc:Bounds x="500" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Image11" bpmnElement="End_Image11"><dc:Bounds x="670" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image11_0" bpmnElement="Flow_Image11_0"><di:waypoint x="196" y="220"/><di:waypoint x="330" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image11_1" bpmnElement="Flow_Image11_1"><di:waypoint x="470" y="220"/><di:waypoint x="500" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image11_2" bpmnElement="Flow_Image11_2"><di:waypoint x="640" y="220"/><di:waypoint x="670" y="220"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

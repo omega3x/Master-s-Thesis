@@ -1,0 +1,182 @@
+﻿[
+    {
+        "image":  "image1.svg",
+        "original":  "bpmn-examples-business-rules-and-bpmn-1.svg",
+        "section":  "Business Rules and BPMN",
+        "caption":  "solution diagram"
+    },
+    {
+        "image":  "image2.svg",
+        "original":  "bpmn-examples-business-rules-and-bpmn-2.svg",
+        "section":  "Business Rules and BPMN",
+        "caption":  "wrong way diagram"
+    },
+    {
+        "image":  "image3.svg",
+        "original":  "bpmn-examples-dependant-instances-1.svg",
+        "section":  "Dependent Instances",
+        "caption":  "signal event solution"
+    },
+    {
+        "image":  "image4.svg",
+        "original":  "bpmn-examples-dependant-instances-2.svg",
+        "section":  "Dependent Instances",
+        "caption":  "message event solution"
+    },
+    {
+        "image":  "image5.svg",
+        "original":  "bpmn-examples-dependant-instances-3.svg",
+        "section":  "Dependent Instances",
+        "caption":  "timer and loop solution"
+    },
+    {
+        "image":  "image6.svg",
+        "original":  "bpmn-examples-four-eyes-principle-1.svg",
+        "section":  "Four Eyes Principle",
+        "caption":  "solution diagram"
+    },
+    {
+        "image":  "image7.svg",
+        "original":  "bpmn-examples-four-eyes-principle-2.svg",
+        "section":  "Four Eyes Principle",
+        "caption":  "approver as collapsed pools"
+    },
+    {
+        "image":  "image8.svg",
+        "original":  "bpmn-examples-four-eyes-principle-3.svg",
+        "section":  "Four Eyes Principle",
+        "caption":  "approver determination with LDAP"
+    },
+    {
+        "image":  "image9.svg",
+        "original":  "bpmn-examples-monthly-invoicing-1.svg",
+        "section":  "Monthly Invoicing",
+        "caption":  "solution diagram"
+    },
+    {
+        "image":  "image10.svg",
+        "original":  "bpmn-examples-monthly-invoicing-2.svg",
+        "section":  "Monthly Invoicing",
+        "caption":  "wrong way diagram"
+    },
+    {
+        "image":  "image11.svg",
+        "original":  "bpmn-examples-additional-information-required-after-user-task-1.svg",
+        "section":  "Additional Information Required",
+        "caption":  "solution 1: request from user"
+    },
+    {
+        "image":  "image12.svg",
+        "original":  "bpmn-examples-additional-information-required-after-user-task-2.svg",
+        "section":  "Additional Information Required",
+        "caption":  "solution 2: request from technical service"
+    },
+    {
+        "image":  "image13.svg",
+        "original":  "bpmn-examples-processing-a-batch-of-orders-from-a-marketplace-1.svg",
+        "section":  "Processing a Batch of Orders",
+        "caption":  "solution diagram"
+    },
+    {
+        "image":  "image14.svg",
+        "original":  "bpmn-examples-reassigning-user-tasks-1.svg",
+        "section":  "Reassigning User Tasks",
+        "caption":  "solution 1: reassignment service"
+    },
+    {
+        "image":  "image15.svg",
+        "original":  "bpmn-examples-reassigning-user-tasks-2.svg",
+        "section":  "Reassigning User Tasks",
+        "caption":  "solution 2: reassignment rules"
+    },
+    {
+        "image":  "image16.svg",
+        "original":  "bpmn-examples-reassigning-user-tasks-3.svg",
+        "section":  "Reassigning User Tasks",
+        "caption":  "solution 3: implicit reassignment"
+    },
+    {
+        "image":  "image17.svg",
+        "original":  "bpmn-examples-two-step-escalation-1.svg",
+        "section":  "Two Step Escalation",
+        "caption":  "solution 1: two event-based gateways"
+    },
+    {
+        "image":  "image18.svg",
+        "original":  "bpmn-examples-two-step-escalation-2.svg",
+        "section":  "Two Step Escalation",
+        "caption":  "solution 2: receive task with timers"
+    },
+    {
+        "image":  "image19.svg",
+        "original":  "bpmn-examples-two-step-escalation-3.svg",
+        "section":  "Two Step Escalation",
+        "caption":  "solution 3: one event-based gateway with generic timer"
+    },
+    {
+        "image":  "image20.svg",
+        "original":  "bpmn-modeling-styles-avoid-crossing-flows-1.svg",
+        "section":  "Avoid Crossing Flows",
+        "caption":  "good example"
+    },
+    {
+        "image":  "image21.svg",
+        "original":  "bpmn-modeling-styles-avoid-crossing-flows-2.svg",
+        "section":  "Avoid Crossing Flows",
+        "caption":  "counter-example"
+    },
+    {
+        "image":  "image22.svg",
+        "original":  "bpmn-modeling-styles-naming-conventions-1.svg",
+        "section":  "Naming Conventions",
+        "caption":  "good example"
+    },
+    {
+        "image":  "image23.svg",
+        "original":  "bpmn-modeling-styles-naming-conventions-2.svg",
+        "section":  "Naming Conventions",
+        "caption":  "generic version"
+    },
+    {
+        "image":  "image24.svg",
+        "original":  "bpmn-modeling-styles-naming-conventions-3.svg",
+        "section":  "Naming Conventions",
+        "caption":  "counter example"
+    },
+    {
+        "image":  "image25.svg",
+        "original":  "bpmn-modeling-styles-symmetric-modeling-1.svg",
+        "section":  "Symmetric Modeling",
+        "caption":  "good example 1"
+    },
+    {
+        "image":  "image26.svg",
+        "original":  "bpmn-modeling-styles-symmetric-modeling-2.svg",
+        "section":  "Symmetric Modeling",
+        "caption":  "counter-example 1"
+    },
+    {
+        "image":  "image27.svg",
+        "original":  "bpmn-modeling-styles-symmetric-modeling-3.svg",
+        "section":  "Symmetric Modeling",
+        "caption":  "good example 2"
+    },
+    {
+        "image":  "image28.svg",
+        "original":  "bpmn-modeling-styles-symmetric-modeling-4.svg",
+        "section":  "Symmetric Modeling",
+        "caption":  "counter-example 2"
+    },
+    {
+        "image":  "image29.svg",
+        "original":  "bpmn-modeling-styles-use-equal-task-sizes-1.svg",
+        "section":  "Use Equal Task Sizes",
+        "caption":  "good example"
+    },
+    {
+        "image":  "image30.svg",
+        "original":  "bpmn-modeling-styles-use-equal-task-sizes-2.svg",
+        "section":  "Use Equal Task Sizes",
+        "caption":  "counter-example"
+    }
+]

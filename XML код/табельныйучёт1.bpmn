@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_TabelnyUchet1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="dc1bfde" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_TabelnyUchet1" name="Процесс 1 — формирование табеля" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Старт">
+      <bpmn:outgoing>Flow_Start_Split</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:parallelGateway id="Gateway_Parallel_Split" name="Параллельный запуск анализов">
+      <bpmn:incoming>Flow_Start_Split</bpmn:incoming>
+      <bpmn:outgoing>Flow_Split_Orders</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Sick</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Timesheets</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Task_AnalyzeOrders" name="анализ приказов по персоналу">
+      <bpmn:incoming>Flow_Split_Orders</bpmn:incoming>
+      <bpmn:outgoing>Flow_Orders_Join</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_AnalyzeSick" name="анализ больничных">
+      <bpmn:incoming>Flow_Split_Sick</bpmn:incoming>
+      <bpmn:outgoing>Flow_Sick_Join</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_AnalyzeTimesheets" name="анализ табелей">
+      <bpmn:incoming>Flow_Split_Timesheets</bpmn:incoming>
+      <bpmn:outgoing>Flow_Timesheets_Join</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="Gateway_Parallel_Join" name="Ожидание завершения анализов">
+      <bpmn:incoming>Flow_Orders_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Sick_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Timesheets_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Form</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Task_FormVedomosti" name="формирование ведомостей">
+      <bpmn:incoming>Flow_Join_Form</bpmn:incoming>
+      <bpmn:outgoing>Flow_Form_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_1" name="Завершение">
+      <bpmn:incoming>Flow_Form_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Split" sourceRef="StartEvent_1" targetRef="Gateway_Parallel_Split" />
+    <bpmn:sequenceFlow id="Flow_Split_Orders" sourceRef="Gateway_Parallel_Split" targetRef="Task_AnalyzeOrders" />
+    <bpmn:sequenceFlow id="Flow_Split_Sick" sourceRef="Gateway_Parallel_Split" targetRef="Task_AnalyzeSick" />
+    <bpmn:sequenceFlow id="Flow_Split_Timesheets" sourceRef="Gateway_Parallel_Split" targetRef="Task_AnalyzeTimesheets" />
+    <bpmn:sequenceFlow id="Flow_Orders_Join" sourceRef="Task_AnalyzeOrders" targetRef="Gateway_Parallel_Join" />
+    <bpmn:sequenceFlow id="Flow_Sick_Join" sourceRef="Task_AnalyzeSick" targetRef="Gateway_Parallel_Join" />
+    <bpmn:sequenceFlow id="Flow_Timesheets_Join" sourceRef="Task_AnalyzeTimesheets" targetRef="Gateway_Parallel_Join" />
+    <bpmn:sequenceFlow id="Flow_Join_Form" sourceRef="Gateway_Parallel_Join" targetRef="Task_FormVedomosti" />
+    <bpmn:sequenceFlow id="Flow_Form_End" sourceRef="Task_FormVedomosti" targetRef="EndEvent_1" />
+    <bpmn:dataObject id="DataObject_Vedomosti_Def" name="ведомости" />
+    <bpmn:dataObjectReference id="DataObjectRef_Vedomosti" name="ведомости" dataObjectRef="DataObject_Vedomosti_Def" />
+    <bpmn:association id="Association_Vedomosti" associationDirection="One" sourceRef="Task_FormVedomosti" targetRef="DataObjectRef_Vedomosti" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_TabelnyUchet1">
+      <bpmndi:BPMNShape id="Shape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_Split" bpmnElement="Gateway_Parallel_Split" isMarkerVisible="true">
+        <dc:Bounds x="245" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_Orders" bpmnElement="Task_AnalyzeOrders">
+        <dc:Bounds x="360" y="80" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_Sick" bpmnElement="Task_AnalyzeSick">
+        <dc:Bounds x="360" y="192" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_Timesheets" bpmnElement="Task_AnalyzeTimesheets">
+        <dc:Bounds x="360" y="304" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_Join" bpmnElement="Gateway_Parallel_Join" isMarkerVisible="true">
+        <dc:Bounds x="565" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_Form" bpmnElement="Task_FormVedomosti">
+        <dc:Bounds x="680" y="170" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds x="902" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataObject_Vedomosti" bpmnElement="DataObjectRef_Vedomosti">
+        <dc:Bounds x="720" y="60" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="706" y="115" width="64" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Start_Split" bpmnElement="Flow_Start_Split">
+        <di:waypoint x="188" y="210" />
+        <di:waypoint x="245" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Orders" bpmnElement="Flow_Split_Orders">
+        <di:waypoint x="270" y="185" />
+        <di:waypoint x="270" y="120" />
+        <di:waypoint x="360" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Sick" bpmnElement="Flow_Split_Sick">
+        <di:waypoint x="295" y="210" />
+        <di:waypoint x="360" y="232" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Split_Timesheets" bpmnElement="Flow_Split_Timesheets">
+        <di:waypoint x="270" y="235" />
+        <di:waypoint x="270" y="344" />
+        <di:waypoint x="360" y="344" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Orders_Join" bpmnElement="Flow_Orders_Join">
+        <di:waypoint x="500" y="120" />
+        <di:waypoint x="590" y="120" />
+        <di:waypoint x="590" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Sick_Join" bpmnElement="Flow_Sick_Join">
+        <di:waypoint x="500" y="232" />
+        <di:waypoint x="565" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Timesheets_Join" bpmnElement="Flow_Timesheets_Join">
+        <di:waypoint x="500" y="344" />
+        <di:waypoint x="590" y="344" />
+        <di:waypoint x="590" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Join_Form" bpmnElement="Flow_Join_Form">
+        <di:waypoint x="615" y="210" />
+        <di:waypoint x="680" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Form_End" bpmnElement="Flow_Form_End">
+        <di:waypoint x="840" y="210" />
+        <di:waypoint x="902" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Vedomosti" bpmnElement="Association_Vedomosti">
+        <di:waypoint x="760" y="170" />
+        <di:waypoint x="738" y="110" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

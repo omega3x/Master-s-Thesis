@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_TabelnyUchet2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="dc1bfde" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_TabelnyUchet2" name="табельный учет" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_TabelnyUchet2">
+      <bpmn:lane id="Lane_Department" name="подразделение">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordTime</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Inclusive_Join</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_HR" name="кадровая служба">
+        <bpmn:flowNodeRef>CallActivity_FormTabelya</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_TransferFinance</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Старт">
+      <bpmn:outgoing>Flow_Start_Record</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:manualTask id="Task_RecordTime" name="фиксация рабочего времени">
+      <bpmn:incoming>Flow_Start_Record</bpmn:incoming>
+      <bpmn:outgoing>Flow_Record_Join</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Record_Form</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:callActivity id="CallActivity_FormTabelya" name="формирование табеля" calledElement="Process_TabelnyUchet1">
+      <bpmn:incoming>Flow_Record_Form</bpmn:incoming>
+      <bpmn:outgoing>Flow_Form_Join</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:inclusiveGateway id="Gateway_Inclusive_Join" name="Слияние потоков">
+      <bpmn:incoming>Flow_Record_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Form_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Transfer</bpmn:outgoing>
+    </bpmn:inclusiveGateway>
+    <bpmn:userTask id="Task_TransferFinance" name="передача финансовой службе">
+      <bpmn:incoming>Flow_Join_Transfer</bpmn:incoming>
+      <bpmn:outgoing>Flow_Transfer_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_1" name="Завершение">
+      <bpmn:incoming>Flow_Transfer_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Record" sourceRef="StartEvent_1" targetRef="Task_RecordTime" />
+    <bpmn:sequenceFlow id="Flow_Record_Join" sourceRef="Task_RecordTime" targetRef="Gateway_Inclusive_Join" />
+    <bpmn:sequenceFlow id="Flow_Record_Form" sourceRef="Task_RecordTime" targetRef="CallActivity_FormTabelya" />
+    <bpmn:sequenceFlow id="Flow_Form_Join" sourceRef="CallActivity_FormTabelya" targetRef="Gateway_Inclusive_Join" />
+    <bpmn:sequenceFlow id="Flow_Join_Transfer" sourceRef="Gateway_Inclusive_Join" targetRef="Task_TransferFinance" />
+    <bpmn:sequenceFlow id="Flow_Transfer_End" sourceRef="Task_TransferFinance" targetRef="EndEvent_1" />
+    <bpmn:dataObject id="DataObject_Tabeli_Def" name="табели" />
+    <bpmn:dataObject id="DataObject_Bolnichnye_Def" name="больничные" />
+    <bpmn:dataObjectReference id="DataObjectRef_Tabeli" name="табели" dataObjectRef="DataObject_Tabeli_Def" />
+    <bpmn:dataObjectReference id="DataObjectRef_Bolnichnye" name="больничные" dataObjectRef="DataObject_Bolnichnye_Def" />
+    <bpmn:association id="Association_Tabeli" associationDirection="None" sourceRef="DataObjectRef_Tabeli" targetRef="Task_RecordTime" />
+    <bpmn:association id="Association_Bolnichnye" associationDirection="None" sourceRef="DataObjectRef_Bolnichnye" targetRef="Task_RecordTime" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_TabelnyUchet2">
+    <bpmndi:BPMNPlane id="BPMNPlane_TabelnyUchet2" bpmnElement="Process_TabelnyUchet2">
+      <bpmndi:BPMNShape id="Shape_Lane_Department" bpmnElement="Lane_Department" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="900" height="180" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_HR" bpmnElement="Lane_HR" isHorizontal="true">
+        <dc:Bounds x="160" y="260" width="900" height="180" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="152" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_RecordTime" bpmnElement="Task_RecordTime">
+        <dc:Bounds x="300" y="130" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway_Join" bpmnElement="Gateway_Inclusive_Join">
+        <dc:Bounds x="560" y="145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CallActivity_Form" bpmnElement="CallActivity_FormTabelya">
+        <dc:Bounds x="380" y="310" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_Transfer" bpmnElement="Task_TransferFinance">
+        <dc:Bounds x="680" y="310" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds x="952" y="332" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataObject_Tabeli" bpmnElement="DataObjectRef_Tabeli">
+        <dc:Bounds x="340" y="50" width="36" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataObject_Bolnichnye" bpmnElement="DataObjectRef_Bolnichnye">
+        <dc:Bounds x="420" y="50" width="36" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Start_Record" bpmnElement="Flow_Start_Record">
+        <di:waypoint x="248" y="170" />
+        <di:waypoint x="300" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Record_Join" bpmnElement="Flow_Record_Join">
+        <di:waypoint x="480" y="170" />
+        <di:waypoint x="560" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Record_Form" bpmnElement="Flow_Record_Form">
+        <di:waypoint x="390" y="210" />
+        <di:waypoint x="390" y="350" />
+        <di:waypoint x="380" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Form_Join" bpmnElement="Flow_Form_Join">
+        <di:waypoint x="470" y="350" />
+        <di:waypoint x="585" y="350" />
+        <di:waypoint x="585" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Join_Transfer" bpmnElement="Flow_Join_Transfer">
+        <di:waypoint x="585" y="170" />
+        <di:waypoint x="585" y="350" />
+        <di:waypoint x="680" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Transfer_End" bpmnElement="Flow_Transfer_End">
+        <di:waypoint x="880" y="350" />
+        <di:waypoint x="952" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Tabeli" bpmnElement="Association_Tabeli">
+        <di:waypoint x="358" y="100" />
+        <di:waypoint x="380" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Bolnichnye" bpmnElement="Association_Bolnichnye">
+        <di:waypoint x="438" y="100" />
+        <di:waypoint x="420" y="130" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

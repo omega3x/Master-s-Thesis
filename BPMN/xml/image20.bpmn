@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_Image20" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="Process_Image20" name="Avoid Crossing Flows - good" isExecutable="true">
+    <bpmn:startEvent id="Start_Image20" name="process started">
+    <bpmn:outgoing>Flow_Image20_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="userTask_Image20_1" name="perform task one">
+    <bpmn:incoming>Flow_Image20_0</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image20_1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="exclusiveGateway_Image20_2" name="required action?">
+    <bpmn:incoming>Flow_Image20_1</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image20_2</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="userTask_Image20_3" name="perform task two">
+    <bpmn:incoming>Flow_Image20_2</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image20_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="exclusiveGateway_Image20_4" name="ok?">
+    <bpmn:incoming>Flow_Image20_3</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image20_4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="userTask_Image20_5" name="perform task three">
+    <bpmn:incoming>Flow_Image20_4</bpmn:incoming>
+    <bpmn:outgoing>Flow_Image20_5</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="End_Image20" name="process finished">
+    <bpmn:incoming>Flow_Image20_5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Image20_0" sourceRef="Start_Image20" targetRef="userTask_Image20_1" />
+    <bpmn:sequenceFlow id="Flow_Image20_1" sourceRef="userTask_Image20_1" targetRef="exclusiveGateway_Image20_2" />
+    <bpmn:sequenceFlow id="Flow_Image20_2" sourceRef="exclusiveGateway_Image20_2" targetRef="userTask_Image20_3" />
+    <bpmn:sequenceFlow id="Flow_Image20_3" sourceRef="userTask_Image20_3" targetRef="exclusiveGateway_Image20_4" />
+    <bpmn:sequenceFlow id="Flow_Image20_4" sourceRef="exclusiveGateway_Image20_4" targetRef="userTask_Image20_5" />
+    <bpmn:sequenceFlow id="Flow_Image20_5" sourceRef="userTask_Image20_5" targetRef="End_Image20" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Image20">
+    <bpmndi:BPMNPlane id="Plane_Image20" bpmnElement="Process_Image20">
+      <bpmndi:BPMNShape id="Shape_Start_Image20" bpmnElement="Start_Image20"><dc:Bounds x="160" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image20_1" bpmnElement="userTask_Image20_1"><dc:Bounds x="330" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_exclusiveGateway_Image20_2" bpmnElement="exclusiveGateway_Image20_2" isMarkerVisible="true"><dc:Bounds x="500" y="195" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image20_3" bpmnElement="userTask_Image20_3"><dc:Bounds x="670" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_exclusiveGateway_Image20_4" bpmnElement="exclusiveGateway_Image20_4" isMarkerVisible="true"><dc:Bounds x="840" y="195" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_userTask_Image20_5" bpmnElement="userTask_Image20_5"><dc:Bounds x="1010" y="180" width="140" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Image20" bpmnElement="End_Image20"><dc:Bounds x="1180" y="202" width="36" height="36"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image20_0" bpmnElement="Flow_Image20_0"><di:waypoint x="196" y="220"/><di:waypoint x="330" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image20_1" bpmnElement="Flow_Image20_1"><di:waypoint x="470" y="220"/><di:waypoint x="500" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image20_2" bpmnElement="Flow_Image20_2"><di:waypoint x="640" y="220"/><di:waypoint x="670" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image20_3" bpmnElement="Flow_Image20_3"><di:waypoint x="810" y="220"/><di:waypoint x="840" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image20_4" bpmnElement="Flow_Image20_4"><di:waypoint x="980" y="220"/><di:waypoint x="1010" y="220"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Image20_5" bpmnElement="Flow_Image20_5"><di:waypoint x="1150" y="220"/><di:waypoint x="1180" y="220"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
