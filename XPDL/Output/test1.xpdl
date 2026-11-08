@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://www.wfmc.org/2009/XPDL2.2" Id="Package_graduate_diploma_issuance" Name="graduate_diploma_issuance">
+  <PackageHeader>
+    <XPDLVersion>2.2</XPDLVersion>
+    <Vendor>Industrial R&amp;D Practice BPMN Converter</Vendor>
+    <Created>2026-06-11T06:11:06Z</Created>
+    <Description>Converted from BPMN 2.0 for Bizagi Modeler import</Description>
+  </PackageHeader>
+  <Pools>
+    <Pool Id="Pool_Process_GradDiploma" Name="Graduate Diploma Issuance" Process="Process_GradDiploma" BoundaryVisible="false">
+      <Lanes>
+      <Lane Id="Lane_Student" Name="Student Office" ParentPool="Pool_Process_GradDiploma"/>
+      <Lane Id="Lane_Academic" Name="Academic Department" ParentPool="Pool_Process_GradDiploma"/>
+      <Lane Id="Lane_Registry" Name="Registry and Archive" ParentPool="Pool_Process_GradDiploma"/>
+      </Lanes>
+    </Pool>
+  </Pools>
+  <WorkflowProcesses>
+  <WorkflowProcess Id="Process_GradDiploma" Name="Graduate Diploma Issuance">
+    <ProcessHeader/>
+    <ActivitySets>
+  <ActivitySet Id="ActivitySet_Subprocess_Registry" Name="Registry processing">
+    <Activities>
+    <Activity Id="Start_Registry" Name="Begin registry">
+      <Event>
+        <StartEvent Trigger="None"/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="1428" YCoordinate="612"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="startEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_GeneratePDF" Name="Generate diploma PDF">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="130" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="1500" YCoordinate="590"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="serviceTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_DigitalSign" Name="Apply qualified digital signature">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="130" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="1660" YCoordinate="590"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="serviceTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_ArchiveRecord" Name="Archive record in document system">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="130" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="1800" YCoordinate="590"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="userTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="End_Registry" Name="Registry complete">
+      <Event>
+        <EndEvent/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="1940" YCoordinate="612"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="endEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    </Activities>
+    <Transitions>
+    <Transition Id="Flow_Reg_Start_PDF" From="Start_Registry" To="Task_GeneratePDF">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1464" YCoordinate="630"/>
+          <Coordinates XCoordinate="1500" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_PDF_Sign" From="Task_GeneratePDF" To="Task_DigitalSign">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1630" YCoordinate="630"/>
+          <Coordinates XCoordinate="1660" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Sign_Archive" From="Task_DigitalSign" To="Task_ArchiveRecord">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1790" YCoordinate="630"/>
+          <Coordinates XCoordinate="1800" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Archive_EndReg" From="Task_ArchiveRecord" To="End_Registry">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1930" YCoordinate="630"/>
+          <Coordinates XCoordinate="1940" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    </Transitions>
+  </ActivitySet>
+    </ActivitySets>
+    <Activities>
+    <Activity Id="Start_Application" Name="Graduation application submitted">
+      <Event>
+        <StartEvent Trigger="None"/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Student">
+          <Coordinates XCoordinate="212" YCoordinate="147"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="startEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_ParallelSplit" Name="Parallel validation">
+      <Route GatewayType="AND"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Split Type="AND">
+            <TransitionRefs>
+              <TransitionRef Id="Flow_Split_Debts"/>
+              <TransitionRef Id="Flow_Split_Grades"/>
+            </TransitionRefs>
+          </Split>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="27" Width="114" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="278" YCoordinate="412"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="parallelGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_CheckDebts" Name="Verify academic debts in ERP">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="170" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="420" YCoordinate="295"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="serviceTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_PullGrades" Name="Pull final grades from LMS">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="170" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="420" YCoordinate="400"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="serviceTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_ParallelJoin" Name="Validation complete">
+      <Route GatewayType="AND"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Join Type="AND"/>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="27" Width="114" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="598" YCoordinate="412"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="parallelGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_EvaluateRequirements" Name="Evaluate graduation requirements">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="180" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="740" YCoordinate="340"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="businessRuleTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_Eligible" Name="Meets requirements?">
+      <Route GatewayType="XOR"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Split Type="XOR">
+            <TransitionRefs>
+              <TransitionRef Id="Flow_Eligible"/>
+              <TransitionRef Id="Flow_NotEligible"/>
+            </TransitionRefs>
+          </Split>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="27" Width="134" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="918" YCoordinate="412"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="exclusiveGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_NotifyDeficiencies" Name="Notify student of deficiencies">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="200" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Student">
+          <Coordinates XCoordinate="640" YCoordinate="128"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="userTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="End_Rejected" Name="Application rejected">
+      <Event>
+        <EndEvent/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Student">
+          <Coordinates XCoordinate="892" YCoordinate="150"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="endEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_ChairSign" Name="Department chair signs transcript">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="180" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="1080" YCoordinate="340"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="userTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Boundary_TimerEscalation" Name="5-day SLA">
+      <Event>
+        <IntermediateEvent Trigger="Timer"/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="14" Width="64" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="1210" YCoordinate="443"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="boundaryEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_DeanEscalation" Name="Dean reviews escalated case">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="180" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="1080" YCoordinate="470"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="userTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_Approved" Name="Approved?">
+      <Route GatewayType="XOR"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Split Type="XOR">
+            <TransitionRefs>
+              <TransitionRef Id="Flow_Approved"/>
+              <TransitionRef Id="Flow_NotApproved"/>
+            </TransitionRefs>
+          </Split>
+          <Join Type="XOR"/>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="27" Width="94" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Academic">
+          <Coordinates XCoordinate="1298" YCoordinate="412"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="exclusiveGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Subprocess_Registry" Name="Registry processing">
+      <BlockActivity ActivitySetId="ActivitySet_Subprocess_Registry" View="COLLAPSED"/>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="150" Width="560" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Registry">
+          <Coordinates XCoordinate="1400" YCoordinate="565"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="subProcess"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_NotifySplit" Name="Post-issuance actions">
+      <Route GatewayType="AND"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Split Type="AND">
+            <TransitionRefs>
+              <TransitionRef Id="Flow_Split_Notify"/>
+              <TransitionRef Id="Flow_Split_Audit"/>
+            </TransitionRefs>
+          </Split>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="27" Width="126" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Registry">
+          <Coordinates XCoordinate="1962" YCoordinate="662"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="parallelGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_SendNotification" Name="Send student and dean notifications">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="190" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Registry">
+          <Coordinates XCoordinate="2100" YCoordinate="555"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="serviceTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_AuditLog" Name="Write immutable audit trail">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="190" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Registry">
+          <Coordinates XCoordinate="2100" YCoordinate="660"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="scriptTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_NotifyJoin" Name="Actions complete">
+      <Route GatewayType="AND"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Join Type="AND"/>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="27" Width="126" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Registry">
+          <Coordinates XCoordinate="2292" YCoordinate="662"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="parallelGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="End_DiplomaIssued" Name="Diploma issued">
+      <Event>
+        <EndEvent/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Registry">
+          <Coordinates XCoordinate="2432" YCoordinate="612"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="endEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    </Activities>
+    <Transitions>
+    <Transition Id="Flow_Start_Parallel" From="Start_Application" To="Gateway_ParallelSplit">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="248" YCoordinate="165"/>
+          <Coordinates XCoordinate="285" YCoordinate="165"/>
+          <Coordinates XCoordinate="285" YCoordinate="380"/>
+          <Coordinates XCoordinate="310" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Split_Debts" From="Gateway_ParallelSplit" To="Task_CheckDebts">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="335" YCoordinate="355"/>
+          <Coordinates XCoordinate="335" YCoordinate="335"/>
+          <Coordinates XCoordinate="420" YCoordinate="335"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Split_Grades" From="Gateway_ParallelSplit" To="Task_PullGrades">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="335" YCoordinate="405"/>
+          <Coordinates XCoordinate="335" YCoordinate="440"/>
+          <Coordinates XCoordinate="420" YCoordinate="440"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Debts_Join" From="Task_CheckDebts" To="Gateway_ParallelJoin">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="590" YCoordinate="335"/>
+          <Coordinates XCoordinate="655" YCoordinate="335"/>
+          <Coordinates XCoordinate="655" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Grades_Join" From="Task_PullGrades" To="Gateway_ParallelJoin">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="590" YCoordinate="440"/>
+          <Coordinates XCoordinate="655" YCoordinate="440"/>
+          <Coordinates XCoordinate="655" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Join_Evaluate" From="Gateway_ParallelJoin" To="Task_EvaluateRequirements">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="680" YCoordinate="380"/>
+          <Coordinates XCoordinate="740" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Evaluate_Eligible" From="Task_EvaluateRequirements" To="Gateway_Eligible">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="920" YCoordinate="380"/>
+          <Coordinates XCoordinate="960" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Eligible" From="Gateway_Eligible" To="Task_ChairSign">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1010" YCoordinate="380"/>
+          <Coordinates XCoordinate="1080" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_NotEligible" From="Gateway_Eligible" To="Task_NotifyDeficiencies">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="985" YCoordinate="355"/>
+          <Coordinates XCoordinate="985" YCoordinate="280"/>
+          <Coordinates XCoordinate="560" YCoordinate="280"/>
+          <Coordinates XCoordinate="560" YCoordinate="168"/>
+          <Coordinates XCoordinate="640" YCoordinate="168"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Notify_EndRejected" From="Task_NotifyDeficiencies" To="End_Rejected">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="840" YCoordinate="168"/>
+          <Coordinates XCoordinate="892" YCoordinate="168"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Chair_ApprovedGW" From="Task_ChairSign" To="Gateway_Approved">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1260" YCoordinate="380"/>
+          <Coordinates XCoordinate="1320" YCoordinate="380"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Timer_Escalation" From="Boundary_TimerEscalation" To="Task_DeanEscalation">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1242" YCoordinate="420"/>
+          <Coordinates XCoordinate="1242" YCoordinate="510"/>
+          <Coordinates XCoordinate="1170" YCoordinate="510"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Dean_ApprovedGW" From="Task_DeanEscalation" To="Gateway_Approved">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1260" YCoordinate="510"/>
+          <Coordinates XCoordinate="1345" YCoordinate="510"/>
+          <Coordinates XCoordinate="1345" YCoordinate="405"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Approved" From="Gateway_Approved" To="Subprocess_Registry">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1345" YCoordinate="380"/>
+          <Coordinates XCoordinate="1345" YCoordinate="640"/>
+          <Coordinates XCoordinate="1400" YCoordinate="640"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_NotApproved" From="Gateway_Approved" To="Task_NotifyDeficiencies">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1345" YCoordinate="355"/>
+          <Coordinates XCoordinate="1345" YCoordinate="100"/>
+          <Coordinates XCoordinate="560" YCoordinate="100"/>
+          <Coordinates XCoordinate="560" YCoordinate="168"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Subprocess_NotifySplit" From="Subprocess_Registry" To="Gateway_NotifySplit">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="1976" YCoordinate="630"/>
+          <Coordinates XCoordinate="2000" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Split_Notify" From="Gateway_NotifySplit" To="Task_SendNotification">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="2025" YCoordinate="605"/>
+          <Coordinates XCoordinate="2025" YCoordinate="595"/>
+          <Coordinates XCoordinate="2100" YCoordinate="595"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Split_Audit" From="Gateway_NotifySplit" To="Task_AuditLog">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="2025" YCoordinate="655"/>
+          <Coordinates XCoordinate="2025" YCoordinate="700"/>
+          <Coordinates XCoordinate="2100" YCoordinate="700"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Notify_Join" From="Task_SendNotification" To="Gateway_NotifyJoin">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="2290" YCoordinate="595"/>
+          <Coordinates XCoordinate="2355" YCoordinate="595"/>
+          <Coordinates XCoordinate="2355" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Audit_Join" From="Task_AuditLog" To="Gateway_NotifyJoin">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="2290" YCoordinate="700"/>
+          <Coordinates XCoordinate="2355" YCoordinate="700"/>
+          <Coordinates XCoordinate="2355" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Join_EndSuccess" From="Gateway_NotifyJoin" To="End_DiplomaIssued">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="2380" YCoordinate="630"/>
+          <Coordinates XCoordinate="2432" YCoordinate="630"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    </Transitions>
+  </WorkflowProcess>
+  </WorkflowProcesses>
+</Package>

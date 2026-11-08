@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://www.wfmc.org/2009/XPDL2.2" Id="Package_random_scholarship_renewal" Name="random_scholarship_renewal">
+  <PackageHeader>
+    <XPDLVersion>2.2</XPDLVersion>
+    <Vendor>Industrial R&amp;D Practice BPMN Converter</Vendor>
+    <Created>2026-06-11T06:11:06Z</Created>
+    <Description>Converted from BPMN 2.0 for Bizagi Modeler import</Description>
+  </PackageHeader>
+  <WorkflowProcesses>
+  <WorkflowProcess Id="Process_RandomOutput" Name="Scholarship Renewal">
+    <ProcessHeader/>
+    <Activities>
+    <Activity Id="Start_RandomOutput" Name="Renewal period opened">
+      <Event>
+        <StartEvent Trigger="None"/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="160" YCoordinate="202"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="startEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="serviceTask_RandomOutput_1" Name="Pull grades from LMS">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="140" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="330" YCoordinate="180"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="serviceTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="businessRuleTask_RandomOutput_2" Name="Evaluate GPA threshold">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="140" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="500" YCoordinate="180"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="businessRuleTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="exclusiveGateway_RandomOutput_3" Name="Eligible for renewal?">
+      <Route GatewayType="XOR"/>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="50" Width="50" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="670" YCoordinate="195"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="exclusiveGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="userTask_RandomOutput_4" Name="Accounting confirms payment">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="140" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="840" YCoordinate="180"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="userTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="End_RandomOutput" Name="Scholarship renewed">
+      <Event>
+        <EndEvent/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1">
+          <Coordinates XCoordinate="1010" YCoordinate="202"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="endEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    </Activities>
+    <Transitions>
+    <Transition Id="Flow_RandomOutput_0" From="Start_RandomOutput" To="serviceTask_RandomOutput_1">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="196" YCoordinate="220"/>
+          <Coordinates XCoordinate="330" YCoordinate="220"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_RandomOutput_1" From="serviceTask_RandomOutput_1" To="businessRuleTask_RandomOutput_2">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="470" YCoordinate="220"/>
+          <Coordinates XCoordinate="500" YCoordinate="220"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_RandomOutput_2" From="businessRuleTask_RandomOutput_2" To="exclusiveGateway_RandomOutput_3">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="640" YCoordinate="220"/>
+          <Coordinates XCoordinate="670" YCoordinate="220"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_RandomOutput_3" From="exclusiveGateway_RandomOutput_3" To="userTask_RandomOutput_4">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="810" YCoordinate="220"/>
+          <Coordinates XCoordinate="840" YCoordinate="220"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_RandomOutput_4" From="userTask_RandomOutput_4" To="End_RandomOutput">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="980" YCoordinate="220"/>
+          <Coordinates XCoordinate="1010" YCoordinate="220"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    </Transitions>
+  </WorkflowProcess>
+  </WorkflowProcesses>
+</Package>

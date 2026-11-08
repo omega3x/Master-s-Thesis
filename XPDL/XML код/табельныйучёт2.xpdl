@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://www.wfmc.org/2009/XPDL2.2" Id="Package_табельныйучёт2" Name="табельныйучёт2">
+  <PackageHeader>
+    <XPDLVersion>2.2</XPDLVersion>
+    <Vendor>Industrial R&amp;D Practice BPMN Converter</Vendor>
+    <Created>2026-06-11T06:11:06Z</Created>
+    <Description>Converted from BPMN 2.0 for Bizagi Modeler import</Description>
+  </PackageHeader>
+  <Pools>
+    <Pool Id="Pool_Process_TabelnyUchet2" Name="табельный учет" Process="Process_TabelnyUchet2" BoundaryVisible="false">
+      <Lanes>
+      <Lane Id="Lane_Department" Name="подразделение" ParentPool="Pool_Process_TabelnyUchet2"/>
+      <Lane Id="Lane_HR" Name="кадровая служба" ParentPool="Pool_Process_TabelnyUchet2"/>
+      </Lanes>
+    </Pool>
+  </Pools>
+  <WorkflowProcesses>
+  <WorkflowProcess Id="Process_TabelnyUchet2" Name="табельный учет">
+    <ProcessHeader/>
+    <Activities>
+    <Activity Id="StartEvent_1" Name="Старт">
+      <Event>
+        <StartEvent Trigger="None"/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Department">
+          <Coordinates XCoordinate="212" YCoordinate="152"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="startEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_RecordTime" Name="фиксация рабочего времени">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="180" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Department">
+          <Coordinates XCoordinate="300" YCoordinate="130"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="manualTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="CallActivity_FormTabelya" Name="формирование табеля">
+      <Implementation>
+        <SubFlow Id="Process_TabelnyUchet1" Execution="SYNCHR"/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="180" BorderColor="-16777216" FillColor="-1" LaneId="Lane_HR">
+          <Coordinates XCoordinate="380" YCoordinate="310"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="callActivity"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Gateway_Inclusive_Join" Name="Слияние потоков">
+      <Route GatewayType="OR"/>
+      <TransitionRestrictions>
+        <TransitionRestriction>
+          <Join Type="OR"/>
+        </TransitionRestriction>
+      </TransitionRestrictions>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="50" Width="50" BorderColor="-16777216" FillColor="-1" LaneId="Lane_Department">
+          <Coordinates XCoordinate="560" YCoordinate="145"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="inclusiveGateway"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="Task_TransferFinance" Name="передача финансовой службе">
+      <Implementation>
+        <Task/>
+      </Implementation>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="80" Width="200" BorderColor="-16777216" FillColor="-1" LaneId="Lane_HR">
+          <Coordinates XCoordinate="680" YCoordinate="310"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="userTask"/>
+      </ExtendedAttributes>
+    </Activity>
+    <Activity Id="EndEvent_1" Name="Завершение">
+      <Event>
+        <EndEvent/>
+      </Event>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="BizAgi_Process_Modeler" Height="36" Width="36" BorderColor="-16777216" FillColor="-1" LaneId="Lane_HR">
+          <Coordinates XCoordinate="952" YCoordinate="332"/>
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+      <ExtendedAttributes>
+        <ExtendedAttribute Name="BPMNElement" Value="endEvent"/>
+      </ExtendedAttributes>
+    </Activity>
+    </Activities>
+    <Transitions>
+    <Transition Id="Flow_Start_Record" From="StartEvent_1" To="Task_RecordTime">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="248" YCoordinate="170"/>
+          <Coordinates XCoordinate="300" YCoordinate="170"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Record_Join" From="Task_RecordTime" To="Gateway_Inclusive_Join">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="480" YCoordinate="170"/>
+          <Coordinates XCoordinate="560" YCoordinate="170"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Record_Form" From="Task_RecordTime" To="CallActivity_FormTabelya">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="390" YCoordinate="210"/>
+          <Coordinates XCoordinate="390" YCoordinate="350"/>
+          <Coordinates XCoordinate="380" YCoordinate="350"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Form_Join" From="CallActivity_FormTabelya" To="Gateway_Inclusive_Join">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="470" YCoordinate="350"/>
+          <Coordinates XCoordinate="585" YCoordinate="350"/>
+          <Coordinates XCoordinate="585" YCoordinate="195"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Join_Transfer" From="Gateway_Inclusive_Join" To="Task_TransferFinance">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="585" YCoordinate="170"/>
+          <Coordinates XCoordinate="585" YCoordinate="350"/>
+          <Coordinates XCoordinate="680" YCoordinate="350"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    <Transition Id="Flow_Transfer_End" From="Task_TransferFinance" To="EndEvent_1">
+      <ConnectorGraphicsInfos>
+        <ConnectorGraphicsInfo ToolId="BizAgi_Process_Modeler" BorderColor="-16777216">
+          <Coordinates XCoordinate="880" YCoordinate="350"/>
+          <Coordinates XCoordinate="952" YCoordinate="350"/>
+        </ConnectorGraphicsInfo>
+      </ConnectorGraphicsInfos>
+    </Transition>
+    </Transitions>
+  </WorkflowProcess>
+  </WorkflowProcesses>
+</Package>

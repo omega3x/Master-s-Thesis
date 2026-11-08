@@ -162,3 +162,26 @@ IMPORTANT:
 Camunda MUST be able to import and display the diagram without errors.
 
 The BPMN must look like it was created by a professional BPMN analyst in a real enterprise organization.
+
+---
+
+## After BPMN generation: XPDL export for Bizagi
+
+BPMN is the source format. For Bizagi Modeler simulation, also produce XPDL 2.2:
+
+1. Save the generated file as `*.bpmn`.
+2. Run from the repository root:
+
+   ```
+   python tools/bpmn_to_xpdl.py path/to/your_file.bpmn
+   ```
+
+   Or convert all thesis deliverables at once:
+
+   ```
+   python tools/bpmn_to_xpdl.py
+   ```
+
+3. Deliver the matching file from `XPDL/` (same name, `.xpdl` extension) to supervisors who use Bizagi.
+
+Do NOT ask the LLM to hand-write XPDL XML. Always generate BPMN first, then convert with `tools/bpmn_to_xpdl.py`.
